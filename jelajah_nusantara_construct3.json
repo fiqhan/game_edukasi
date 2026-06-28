@@ -1,0 +1,644 @@
+{
+  "game": {
+    "title": "JELAJAH NUSANTARA",
+    "subtitle": "(Petualangan Mengenal Bentang Alam)",
+    "platform": "Construct 3",
+    "target": "Siswa kelas IV",
+    "sections": {
+      "menu_utama": {
+        "items": [
+          { "id": 1, "label": "Main" },
+          { "id": 2, "label": "Panduan" },
+          { "id": 3, "label": "Hasil belajar" },
+          { "id": 4, "label": "Tentang Media" },
+          { "id": 5, "label": "Keluar" }
+        ]
+      },
+      "panduan": {
+        "items": [
+          "Pilih tombol main",
+          "Selesaikan zona 1 terlebih dahulu",
+          "Baca pos informasi",
+          "Jawab kuis yang muncul",
+          "Dapatkan skor dan badge",
+          "Selesaikan semua zona"
+        ]
+      },
+      "hasil_belajar": {
+        "nama_tim": "Nama Tim",
+        "scores": {
+          "Dataran Tinggi": 90,
+          "Dataran Rendah": 80,
+          "Kegiatan Ekonomi": 90
+        }
+      },
+      "tentang_media": {
+        "judul": "JELAJAH NUSANTARA",
+        "deskripsi": "Game edukasi berbasis web yang membantu siswa kelas IV mempelajari tentang alam dan kegiatan ekonomi masyarakat Indonesia seacara interaktif.",
+        "materi": [
+          { "id": 1, "title": "Dataran Tinggi" },
+          { "id": 2, "title": "Dataran Rendah" },
+          { "id": 3, "title": "Kegiatan Ekonomi" }
+        ],
+        "slide_selanjutnya": [
+          {
+            "title": "Tujuan pembelajaran",
+            "points": [
+              "Mengenal bentang alam Indonesia",
+              "Memahami hubungan antara kondisi alam dan pekerjaan masyarakat",
+              "Mengenal kegiatan ekonomi di lingkungan sekitar"
+            ]
+          },
+          {
+            "title": "Pengembang Media",
+            "author": {
+              "Nama": "Wafiq Ria Rakhmawati",
+              "Nim": "2024030076",
+              "Instansi": "Universitas Sains Alqur’an",
+              "Tahun": 2026
+            }
+          }
+        ]
+      }
+    },
+    "flow": {
+      "start_after_click_main": true,
+      "zona_unlock_rule": {
+        "zona_1_mandatory_first": true,
+        "zona_2_locked_until_completion_of_zona_1": true,
+        "zona_3_locked_until_completion_of_zona_2": true
+      },
+      "zonation": [
+        {
+          "zona": 1,
+          "nama": "Dataran Tinggi",
+          "misi": "Mari belajar memahami dataran tinggi Bersama Doni",
+          "npc": {
+            "karakter": "Doni"
+          },
+          "pos": [
+            {
+              "id": 1,
+              "title": "Pos informasi 1 (mari berkenalan tentang dataran tinggi)",
+              "assets": {
+                "image_note": "ada gambar pak tani"
+              },
+              "content": "Dataran tinggi adalah wilayah daratan luas yang berada pada ketinggian lebih dari 500 meter di atas permukaan laut (mdpl). Wilayah ini memiliki permukaan yang relatif datar dan umumnya beriklim sejuk, menjadikannya pusat kegiatan pertanian",
+              "on_click_next": "doni berjalan lalu melewati lahan pertanian sampai menemukan plang Pos informasi 2"
+            },
+            {
+              "id": 2,
+              "title": "Pos informasi 2 (Ciri-ciri apa aja ya yang ada di dataran tinggi)",
+              "content": {
+                "long-content": [
+                  "Iklim Sejuk: Suhu udara di dataran tinggi 15 derajat hingga 24 derajat cenderung dingin dan sejuk karena pengaruh ketinggiannya.",
+                  "Pertanian Terasering: Lahan pertanian atau perkebunan sering dibuat bertingkat (terasering) untuk mencegah erosi tanah.",
+                  "Tanah Subur: Umumnya tanah di dataran tinggi sangat subur, terutama yang berada di kawasan vulkanik.",
+                  "Amplitudo Suhu Tinggi: Memiliki perbedaan suhu yang sangat terasa antara siang hari (cenderung panas terik) dan malam hari (sangat dingin)"
+                ],
+                "npc_message": "jangan lupa membawa jaket jika berkunjung ke dataran tinggi, karena udaranya cukup dingin"
+              },
+              "on_click_next": "doni melanjutkan perjalanan menuju Pos informasi 3"
+            },
+            {
+              "id": 3,
+              "title": "Pos informasi 3 (Bentuk Alam Dataran Tinggi)",
+              "content": 
+                "Lokasi Sekitar: Pegunungan, Perbukitan, Lereng Gunung. Karena bentuk alamnya, pemandangan di dataran tinggi biasanya sangat indah dan menjadi tujuan wisata. Contoh Wisata: Kawah sikidang, Kawah ijen (jawa timur), Telaga warna, Bromo"
+              ,
+              "on_click_next": "doni melanjutkan perjalanan menuju Pos informasi 4"
+            },
+            {
+              "id": 4,
+              "title": "Pos informasi 4",
+              "content": {
+                "long-content":["Mengapa banyak sayuran ditanam di Dataran Tinggi? Udara yang sejuk dan tanah yang subur membuat dataran tinggi cocok untuk pertanian. Tanaman yang cocok: Kentang, Wortel, Kubis, Stroberi. Tidak semua tanaman cocok tumbuh di dataran tinggi"],
+                "npc_message": "Kentang dan wortel tumbuh lebih baik di udara yang sejuk"
+              },
+              "on_click_next": "doni melanjutkan perjalanan menuju Pos informasi 5"
+            },
+            {
+              "id": 5,
+              "title": "Cara Menjaga Kelestarian Dataran Tinggi",
+              "content": {
+                "long-content": [
+                  "Tidak membuang sampah sembarangan",
+                  "Tidak menebang pohon secara liar",
+                  "Menjaga hutan di pegunungan",
+                  "Melakukan penghijauan (Reboisasi)",
+                  "Hemat menggunakan air",
+                  "Terasering"
+                ]
+              },
+              "on_click_next": "muncul NPC terakhir"
+            }
+          ],
+          "npc_last": "Hebat! kamu telah mempelajari seluruh materi dataran tinggi. Sekarang saatnya menguji pemahamanmu",
+          "quiz": {
+            "mode": "after_pos",
+            "feedback_rules": {
+              "correct": {
+                "mark": "✓",
+                "label": "BENAR",
+                "bonus_points": 10,
+                "explanation": "Dataran tinggi memiliki udara yang sejuk dan tanah yang cocok untuk pertanian sayuran. Oleh karena itu, daerah ini sering dimanfaatkan untuk menanam kentang, wortel, kubis, dan berbagai tanaman lainnya."
+              },
+              "wrong": {
+                "mark": "✗",
+                "correct_answer_label": "B",
+                "explanation": "Dataran tinggi memiliki udara yang sejuk dan tanah yang cocok untuk pertanian sayuran. Oleh karena itu, daerah ini sering dimanfaatkan untuk menanam kentang, wortel, kubis, dan berbagai tanaman lainnya."
+              }
+            },
+            "questions": [
+              {
+                "id": 1,
+                "question": "Pak Rahmat ingin membuka usaha pertanian sayuran. Ia membutuhkan daerah yang memiliki udara sejuk dan tanah yang subur. Daerah yang paling tepat untuk Pak Rahmat adalah ....",
+                "options": [
+                  "A. Pantai",
+                  "B. Dataran tinggi",
+                  "C. Muara sungai",
+                  "D. Laut"
+                ],
+                "correct_option_index": 1,
+                "discussion": "Dataran tinggi memiliki udara yang sejuk dan tanah yang cocok untuk pertanian sayuran. Oleh karena itu, daerah ini sering dimanfaatkan untuk menanam kentang, wortel, kubis, dan berbagai tanaman lainnya."
+              },
+              {
+                "id": 2,
+                "question": "Seorang petani kentang mengalami penurunan hasil panen karena lahannya dipindahkan ke daerah yang lebih panas. Apa penyebab yang paling mungkin?",
+                "options": [
+                  "A. Kentang membutuhkan air laut",
+                  "B. Kentang hanya tumbuh saat musim hujan",
+                  "C. Kentang tidak membutuhkan tanah",
+                  "D. Kentang lebih cocok ditanam di daerah sejuk"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Kentang merupakan tanaman yang tumbuh optimal pada suhu yang sejuk. Jika ditanam di daerah yang terlalu panas, pertumbuhannya dapat terganggu sehingga hasil panennya menurun."
+              },
+              {
+                "id": 3,
+                "question": "Perhatikan tabel berikut! Daerah Suku Udara: A=18°C, B=33°C, C=35°C, D=34°C. Daerah yang paling cocok untuk budidaya kentang adalah ....",
+                "options": [
+                  "A. Daerah A",
+                  "B. Daerah B",
+                  "C. Daerah C",
+                  "D. Daerah D"
+                ],
+                "correct_option_index": 0,
+                "discussion": "Kentang membutuhkan suhu yang relatif sejuk untuk tumbuh dengan baik. Dari tabel tersebut, Daerah A memiliki suhu paling rendah yaitu 18°C sehingga paling sesuai untuk budidaya kentang."
+              },
+              {
+                "id": 4,
+                "question": "Banyak masyarakat dataran tinggi bekerja sebagai petani sayuran. Alasan yang paling tepat adalah ....",
+                "options": [
+                  "A. Dekat dengan pelabuhan",
+                  "B. Banyak ikan di sekitar rumah",
+                  "C. Udara sejuk dan tanah mendukung pertumbuhan tanaman",
+                  "D. Dekat dengan laut"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Kondisi alam memengaruhi pekerjaan masyarakat. Di dataran tinggi, udara yang sejuk dan tanah yang subur membuat pertanian menjadi kegiatan ekonomi yang banyak dilakukan."
+              },
+              {
+                "id": 5,
+                "question": "Dina berkunjung ke suatu daerah dengan ciri-ciri: Banyak perbukitan, Udara sejuk, Banyak kebun sayur. Berdasarkan ciri-ciri tersebut, Dina kemungkinan sedang berada di ....",
+                "options": [
+                  "A. Dataran rendah",
+                  "B. Pantai",
+                  "C. Dataran tinggi",
+                  "D. Laut"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Ciri-ciri yang disebutkan menunjukkan karakteristik dataran tinggi, yaitu memiliki udara sejuk, banyak perbukitan, dan cocok untuk kegiatan pertanian."
+              },
+              {
+                "id": 6,
+                "question": "Perhatikan tanaman berikut! Kentang, Wortel, Kubis, Mangrove. Tanaman yang paling sesuai ditanam di dataran tinggi adalah ....",
+                "options": [
+                  "A. 1, 2, dan 3",
+                  "B. 1, 2, dan 4",
+                  "C. 2, 3, dan 4",
+                  "D. 1, 3, dan 4"
+                ],
+                "correct_option_index": 0,
+                "discussion": "Kentang, wortel, dan kubis merupakan tanaman yang tumbuh baik di daerah bersuhu sejuk. Sementara itu, mangrove tumbuh di wilayah pesisir pantai."
+              },
+              {
+                "id": 7,
+                "question": "Jika suhu udara di suatu dataran tinggi meningkat drastis selama bertahun-tahun, dampak yang mungkin terjadi adalah ....",
+                "options": [
+                  "A. Air laut menjadi asin",
+                  "B. Beberapa tanaman sayuran sulit tumbuh dengan baik",
+                  "C. Jumlah gunung bertambah",
+                  "D. Sungai berubah menjadi laut"
+                ],
+                "correct_option_index": 1,
+                "discussion": "Banyak tanaman dataran tinggi membutuhkan suhu yang sejuk. Jika suhu meningkat terlalu tinggi, pertumbuhan tanaman dapat terganggu dan hasil panen berkurang."
+              },
+              {
+                "id": 8,
+                "question": "Di sebuah daerah dataran tinggi, banyak pohon ditebang untuk membuka lahan pertanian baru. Beberapa tahun kemudian, wilayah tersebut sering mengalami tanah longsor saat musim hujan. Penyebab yang paling tepat adalah .....",
+                "options": [
+                  "A. Curah hujan terlalu rendah",
+                  "B. Udara di dataran tinggi terlalu sejuk",
+                  "C. Tanaman sayuran tumbuh terlalu banyak",
+                  "D. Berkurangnya pohon yang berfungsi menahan tanah"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Akar pohon membantu mengikat tanah. Jika banyak pohon ditebang, tanah menjadi lebih mudah terkikis dan longsor saat hujan."
+              },
+              {
+                "id": 9,
+                "question": "Untuk mencegah terjadinya erosi atau tanah longsor di lahan pertanian dataran tinggi yang miring, petani biasanya menggunakan system…",
+                "options": [
+                  "A. Terasering",
+                  "B. Irigasi Tetes",
+                  "C. Tumpang Sari",
+                  "D. Monokultur"
+                ],
+                "correct_option_index": 0,
+                "discussion": "Terasering (pembuatan teras-teras atau tangga) berfungsi untuk memotong lereng menjadi bidang-bidang datar. Hal ini bertujuan untuk memperlambat aliran air hujan dan mengurangi panjang lereng, sehingga tanah tidak mudah terkikis dan erosi serta longsor dapat dicegah di lahan miring."
+              },
+              {
+                "id": 10,
+                "question": "Perhatikan beberapa poin dibawah ini untuk menjaga kelestarian dataran tinggi: 1) Membuat terasering pada lahan miring, 2) Menanam Kembali pohon di lahan gundul, 3) Menebang pohon di lereng gunung, 4) Membuang sampah ke sungai. Tindakan yang paling tepat untuk menjaga lingkungan dataran tinggi adalah ....",
+                "options": [
+                  "A. 1 dan 3",
+                  "B. 2 dan 4",
+                  "C. 3 dan 4",
+                  "D. 1 dan 2"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Terasering dan penghijauan membantu mencegah erosi serta longsor sehingga lingkungan dataran tinggi tetap terjaga."
+              }
+            ]
+          }
+        },
+        {
+          "zona": 2,
+          "nama": "Dataran Rendah",
+          "misi": "Zona 2 masih terkunci sebelum menyelesaikan Zona 1",
+          "pos": [
+            {
+              "id": 1,
+              "title": "Pos Informasi 1 (Apa Itu Dataran Rendah?)",
+              "content": "Dataran rendah adalah wilayah daratan yang memiliki ketinggian sekitar 0–200 meter di atas permukaan laut (mdpl). Dataran rendah umumnya memiliki permukaan tanah yang relatif datar sehingga mudah digunakan untuk membangun rumah, sekolah, jalan, pasar, dan berbagai fasilitas umum lainnya."
+            },
+            {
+              "id": 2,
+              "title": "Pos Informasi 2 (Ciri-Ciri Dataran Rendah)",
+              "content": {
+                "points": [
+                  "Permukaan tanah relatif datar",
+                  "Suhu udara lebih hangat",
+                  "Banyak permukiman penduduk",
+                  "Memiliki akses transportasi yang mudah",
+                  "Banyak pusat kegiatan ekonomi"
+                ]
+              }
+            },
+            {
+              "id": 3,
+              "title": "Pos Informasi 3 (Bentuk Alam Dataran Rendah)",
+              "content": {
+                "description": "Bentang alam dataran rendah berbeda dengan dataran tinggi yang banyak memiliki perbukitan dan pegunungan. Bentuk alam yang banyak ditemukan di dataran rendah antara lain:",
+                "points": [
+                  "Persawahan",
+                  "Permukiman penduduk",
+                  "Jalan raya",
+                  "Kawasan perkotaan",
+                  "Lahan pertanian"
+                ],
+                "note": "Karena wilayahnya datar, pembangunan fasilitas umum menjadi lebih mudah dilakukan."
+              }
+            },
+            {
+              "id": 4,
+              "title": "Pos Informasi 4 (Mengapa Banyak Penduduk Tinggal di Dataran Rendah?)",
+              "content": {
+                "paragraphs": [
+                  "Banyak penduduk memilih tinggal di dataran rendah karena wilayah ini memiliki kondisi yang mendukung kehidupan sehari-hari.",
+                  "Beberapa alasannya: Mudah membangun rumah dan fasilitas umum; Akses transportasi lebih mudah; Dekat dengan pusat perdagangan dan layanan masyarakat; Tersedia banyak lapangan pekerjaan; Semakin banyak penduduk yang tinggal di suatu wilayah, semakin berkembang pula kegiatan ekonomi di daerah tersebut."
+                ],
+                "points_ringkas": [
+                  "Mudah membangun rumah dan fasilitas umum.",
+                  "Akses transportasi lebih mudah.",
+                  "Dekat dengan pusat perdagangan dan layanan masyarakat.",
+                  "Tersedia banyak lapangan pekerjaan.",
+                  "Kegiatan ekonomi berkembang seiring bertambahnya penduduk."
+                ]
+              }
+            },
+            {
+              "id": 5,
+              "title": "Pos Informasi 5 (Menjaga kelestarian dataran rendah)",
+              "content": {
+                "points": [
+                  "Menjaga kebersihan lingkungan",
+                  "Melindungi hewan dan tumbuhan",
+                  "Menghemat penggunaan air",
+                  "Menjaga kebersihan sungai dan saluran air",
+                  "Tidak membakar sampah sembarangan"
+                ]
+              }
+            }
+          ],
+          "quiz": {
+            "mode": "after_pos",
+            "questions": [
+              {
+                "id": 1,
+                "question": "Dataran rendah adalah wilayah yang memiliki ketinggian sekitar ....",
+                "options": [
+                  "A. 0–200 meter di atas permukaan laut",
+                  "B. 200–500 meter di atas permukaan laut",
+                  "C. 500–1.000 meter di atas permukaan laut",
+                  "D. Lebih dari 1.000 meter di atas permukaan laut"
+                ],
+                "correct_option_index": 0,
+                "discussion": "Dataran rendah umumnya berada pada ketinggian 0–200 mdpl."
+              },
+              {
+                "id": 2,
+                "question": "Perhatikan ciri-ciri berikut! Permukaan tanah relatif datar, Banyak permukiman penduduk, Banyak lereng curam, Suhu udara lebih hangat. Ciri-ciri dataran rendah ditunjukkan oleh nomor ....",
+                "options": [
+                  "A. 1, 2, dan 3",
+                  "B. 1, 2, dan 4",
+                  "C. 2, 3, dan 4",
+                  "D. 1, 3, dan 4"
+                ],
+                "correct_option_index": 1,
+                "discussion": "Dataran rendah memiliki tanah datar, suhu hangat, dan banyak permukiman."
+              },
+              {
+                "id": 3,
+                "question": "Bentuk alam yang banyak ditemukan di dataran rendah adalah ....",
+                "options": [
+                  "A. Kawah gunung",
+                  "B. Tebing curam",
+                  "C. Persawahan dan permukiman",
+                  "D. Puncak gunung"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Persawahan dan permukiman banyak berkembang di dataran rendah."
+              },
+              {
+                "id": 4,
+                "question": "Mengapa banyak kota berkembang di wilayah dataran rendah?",
+                "options": [
+                  "A. Banyak hutan lebat",
+                  "B. Banyak gunung tinggi",
+                  "C. Suhu udaranya sangat dingin",
+                  "D. Lahannya datar dan mudah dibangun"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Kondisi wilayah yang datar memudahkan pembangunan berbagai fasilitas."
+              },
+              {
+                "id": 5,
+                "question": "Tanaman yang banyak dibudidayakan di dataran rendah adalah ....",
+                "options": ["A. Padi", "B. Teh", "C. Stroberi", "D. Kentang"],
+                "correct_option_index": 0,
+                "discussion": "Padi merupakan tanaman utama yang banyak ditanam di dataran rendah."
+              },
+              {
+                "id": 6,
+                "question": "Di sebuah wilayah yang berada di dataran rendah, banyak warga yang masih membuang sampah ke sungai. Apa akibat yang akan terjadi…",
+                "options": [
+                  "A. Air sungai menjadi lebih bersih",
+                  "B. sungai tercemar dan mudah banjir",
+                  "C. Sungai menjadi lebih dalam",
+                  "D. Tanaman tumbuh lebih subur"
+                ],
+                "correct_option_index": 1,
+                "discussion": "membuang sampah ke sungai dapat mencemari air dan menyumbat aliran sungai, sehingga meningkatkan risiko banjir"
+              },
+              {
+                "id": 7,
+                "question": "Sebuah wilayah memiliki banyak jalan raya, pasar, sekolah, dan permukiman penduduk. Wilayah tersebut kemungkinan merupakan ....",
+                "options": [
+                  "A. Pegunungan",
+                  "B. Kawasan hutan",
+                  "C. Lereng gunung",
+                  "D. Dataran rendah"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Banyaknya fasilitas umum merupakan ciri wilayah dataran rendah."
+              },
+              {
+                "id": 8,
+                "question": "Mengapa banyak penduduk memilih tinggal di dataran rendah?",
+                "options": [
+                  "A. Karena banyak lereng curam",
+                  "B. Karena sulit membangun rumah",
+                  "C. Karena akses dan fasilitas lebih mudah",
+                  "D. Karena udaranya sangat dingin"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Dataran rendah memiliki akses transportasi dan fasilitas yang lebih lengkap."
+              },
+              {
+                "id": 9,
+                "question": "Perhatikan tabel berikut! Wilayah A Menanam Padi, Wilayah B Menanam Teh. Wilayah yang menunjukkan dataran rendah adalah ....",
+                "options": ["A. A dan B", "B. A", "C. B", "D. Tidak ada"],
+                "correct_option_index": 1,
+                "discussion": "Padi banyak dibudidayakan di dataran rendah, sedangkan teh umumnya di dataran tinggi."
+              },
+              {
+                "id": 10,
+                "question": "Perhatikan kegiatan berikut! Menanam pohon di lingkungan sekitar. Membuang sampah ke sungai. Membersihkan saluran air. Membakar sampah sembarangan. Kegiatan yang menunjukkan upaya menjaga kelestarian dataran rendah adalah ....",
+                "options": [
+                  "A. 1 dan 2",
+                  "B. 2 dan 4",
+                  "C. 1 dan 3",
+                  "D. 3 dan 4"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Menanam pohon dan membersihkan saluran air merupakan tindakan yang membantu menjaga lingkungan dataran rendah agar tetap bersih dan nyaman."
+              }
+            ]
+          }
+        },
+        {
+          "zona": 3,
+          "nama": "Laut",
+          "misi": "Zona 3 masih terkunci sebelum menyelesaikan Zona 2",
+          "pos": [
+            {
+              "id": 1,
+              "title": "POS INFORMASI 1 (Apa Itu Laut?)",
+              "content": "Laut adalah hamparan air asin yang sangat luas dan menghubungkan berbagai wilayah di dunia. Indonesia dikenal sebagai negara maritim karena memiliki wilayah laut yang sangat luas. Laut menjadi tempat hidup berbagai makhluk hidup dan memberikan banyak manfaat bagi manusia."
+            },
+            {
+              "id": 2,
+              "title": "POS INFORMASI 2 (Ciri-Ciri Laut)",
+              "content": {
+                "points": [
+                  "Airnya asin",
+                  "Memiliki ombak",
+                  "Luas dan dalam",
+                  "Menjadi habitat berbagai makhluk hidup",
+                  "Dipengaruhi oleh pasang surut air laut"
+                ]
+              }
+            },
+            {
+              "id": 3,
+              "title": "POS INFORMASI 3 (Kehidupan di Laut)",
+              "content": {
+                "description": "Laut merupakan rumah bagi berbagai jenis makhluk hidup. Contoh makhluk hidup yang dapat ditemukan di laut: Ikan, Udang, Kepiting, Rumput laut, Terumbu karang. Makhluk hidup tersebut membentuk ekosistem laut yang saling bergantung satu sama lain.",
+                "species": [
+                  "Ikan",
+                  "Udang",
+                  "Kepiting",
+                  "Rumput laut",
+                  "Terumbu karang"
+                ]
+              }
+            },
+            {
+              "id": 4,
+              "title": "POS INFORMASI 4 (Mengapa Laut Penting bagi Kehidupan?)",
+              "content": {
+                "benefits": [
+                  "Sumber makanan",
+                  "Jalur transportasi",
+                  "Tempat wisata",
+                  "Membantu menjaga keseimbangan lingkungan"
+                ],
+                "note": "Karena memiliki banyak manfaat, laut perlu dijaga dan dilestarikan."
+              }
+            },
+            {
+              "id": 5,
+              "title": "POS INFORMASI 5 (Menjaga Kelestarian Laut)",
+              "content": {
+                "points": [
+                  "Tidak membuang sampah ke laut.",
+                  "Mengurangi penggunaan plastik sekali pakai.",
+                  "Menjaga kebersihan pantai.",
+                  "Tidak merusak terumbu karang.",
+                  "Menggunakan sumber daya laut secara bijak."
+                ]
+              }
+            }
+          ],
+          "quiz": {
+            "mode": "after_pos",
+            "questions": [
+              {
+                "id": 1,
+                "question": "Perhatikan ciri-ciri berikut! a) Airnya asin b) Memiliki ombak c) Dipengaruhi pasang surut. Bentang alam yang memiliki ciri-ciri tersebut adalah ....",
+                "options": ["A. Sungai", "B. Danau", "C. Laut", "D. Sawah"],
+                "correct_option_index": 2,
+                "discussion": "Ciri tersebut merupakan ciri khas laut."
+              },
+              {
+                "id": 2,
+                "question": "Salah satu makhluk hidup yang hidup di laut adalah ....",
+                "options": ["A. Sapi", "B. Ayam", "C. Kucing", "D. Udang"],
+                "correct_option_index": 3,
+                "discussion": "Udang merupakan hewan yang hidup di laut."
+              },
+              {
+                "id": 3,
+                "question": "Terumbu karang banyak ditemukan di ....",
+                "options": [
+                  "A. Laut",
+                  "B. Persawahan",
+                  "C. Pegunungan",
+                  "D. Perkotaan"
+                ],
+                "correct_option_index": 0,
+                "discussion": "Terumbu karang merupakan bagian penting dari ekosistem laut."
+              },
+              {
+                "id": 4,
+                "question": "Rahma melihat banyak kapal mengangkut barang dari satu pulau ke pulau lain. Manfaat laut yang ditunjukkan pada cerita tersebut adalah ....",
+                "options": [
+                  "A. Tempat pertanian",
+                  "B. Tempat peternakan",
+                  "C. Jalur transportasi",
+                  "D. Tempat olahraga"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Laut digunakan sebagai jalur transportasi antarwilayah."
+              },
+              {
+                "id": 5,
+                "question": "Suatu daerah memiliki pantai yang indah dan banyak dikunjungi wisatawan. Manfaat laut yang paling sesuai adalah ....",
+                "options": [
+                  "A. Pariwisata",
+                  "B. Perkebunan",
+                  "C. Peternakan",
+                  "D. Pertanian"
+                ],
+                "correct_option_index": 0,
+                "discussion": "Keindahan laut dan pantai dapat dimanfaatkan sebagai objek wisata."
+              },
+              {
+                "id": 6,
+                "question": "Nelayan sulit melaut saat cuaca buruk. Hal tersebut menunjukkan bahwa ....",
+                "options": [
+                  "A. Laut tidak bermanfaat",
+                  "B. Laut tidak memiliki ombak",
+                  "C. Aktivitas manusia dapat dipengaruhi kondisi laut",
+                  "D. Semua pekerjaan dilakukan di laut"
+                ],
+                "correct_option_index": 2,
+                "discussion": "Kondisi laut memengaruhi aktivitas manusia yang memanfaatkannya."
+              },
+              {
+                "id": 7,
+                "question": "Perhatikan tabel berikut! Benda: Ikan tuna= Laut, Padi= Sawah, Udang= Laut, Kubis= Dataran tinggi. Makhluk hidup yang termasuk ekosistem laut adalah ....",
+                "options": [
+                  "A. Padi dan Kubis",
+                  "B. Ikan Tuna dan Udang",
+                  "C. Ikan Tuna dan Kubis",
+                  "D. Udang dan Kubis"
+                ],
+                "correct_option_index": 1,
+                "discussion": "Ikan tuna dan udang hidup di laut."
+              },
+              {
+                "id": 8,
+                "question": "Banyak wisatawan membuang sampah plastik ke laut setelah berlibur di pantai. Dampak yang paling mungkin terjadi adalah ....",
+                "options": [
+                  "A. Laut menjadi lebih bersih",
+                  "B. Jumlah sampah berkurang",
+                  "C. Air laut menjadi tawar",
+                  "D. Makhluk hidup laut dapat terganggu"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Sampah plastik mencemari laut dan membahayakan hewan laut."
+              },
+              {
+                "id": 9,
+                "question": "Perhatikan kegiatan berikut! 1) Mengurangi penggunaan plastik. 2) Membuang sampah ke laut. 3) Menjaga kebersihan pantai. 4) Merusak terumbu karang. Upaya menjaga kelestarian laut ditunjukkan oleh nomor ....",
+                "options": [
+                  "A. 1 dan 2",
+                  "B. 1 dan 3",
+                  "C. 2 dan 4",
+                  "D. 3 dan 4"
+                ],
+                "correct_option_index": 1,
+                "discussion": "Mengurangi plastik dan menjaga kebersihan pantai membantu melestarikan laut."
+              },
+              {
+                "id": 10,
+                "question": "Sebuah pantai yang sebelumnya bersih kini dipenuhi sampah. Akibatnya jumlah wisatawan berkurang dan banyak ikan mati. Kesimpulan yang tepat adalah ....",
+                "options": [
+                  "A. Sampah tidak memengaruhi laut",
+                  "B. Laut hanya bermanfaat bagi nelayan",
+                  "C. Laut tidak perlu dijaga",
+                  "D. Kelestarian laut perlu dijaga karena memengaruhi kehidupan manusia dan makhluk hidup"
+                ],
+                "correct_option_index": 3,
+                "discussion": "Laut yang tercemar berdampak pada lingkungan, makhluk hidup, dan aktivitas manusia."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
