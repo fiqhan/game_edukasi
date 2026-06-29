@@ -89,15 +89,7 @@
             {
               "id": 2,
               "title": "Pos informasi 2 (Ciri-ciri apa aja ya yang ada di dataran tinggi)",
-              "content": {
-                "long-content": [
-                  "Iklim Sejuk: Suhu udara di dataran tinggi 15 derajat hingga 24 derajat cenderung dingin dan sejuk karena pengaruh ketinggiannya.",
-                  "Pertanian Terasering: Lahan pertanian atau perkebunan sering dibuat bertingkat (terasering) untuk mencegah erosi tanah.",
-                  "Tanah Subur: Umumnya tanah di dataran tinggi sangat subur, terutama yang berada di kawasan vulkanik.",
-                  "Amplitudo Suhu Tinggi: Memiliki perbedaan suhu yang sangat terasa antara siang hari (cenderung panas terik) dan malam hari (sangat dingin)"
-                ],
-                "npc_message": "jangan lupa membawa jaket jika berkunjung ke dataran tinggi, karena udaranya cukup dingin"
-              },
+              "content": "Iklim Sejuk: Suhu udara di dataran tinggi 15 derajat hingga 24 derajat cenderung dingin dan sejuk karena pengaruh ketinggiannya. Pertanian Terasering: Lahan pertanian atau perkebunan sering dibuat bertingkat (terasering) untuk mencegah erosi tanah. Tanah Subur: Umumnya tanah di dataran tinggi sangat subur, terutama yang berada di kawasan vulkanik. Amplitudo Suhu Tinggi: Memiliki perbedaan suhu yang sangat terasa antara siang hari (cenderung panas terik) dan malam hari (sangat dingin)",
               "on_click_next": "doni melanjutkan perjalanan menuju Pos informasi 3"
             },
             {
@@ -111,25 +103,13 @@
             {
               "id": 4,
               "title": "Pos informasi 4",
-              "content": {
-                "long-content":["Mengapa banyak sayuran ditanam di Dataran Tinggi? Udara yang sejuk dan tanah yang subur membuat dataran tinggi cocok untuk pertanian. Tanaman yang cocok: Kentang, Wortel, Kubis, Stroberi. Tidak semua tanaman cocok tumbuh di dataran tinggi"],
-                "npc_message": "Kentang dan wortel tumbuh lebih baik di udara yang sejuk"
-              },
+              "content": "Mengapa banyak sayuran ditanam di Dataran Tinggi? Udara yang sejuk dan tanah yang subur membuat dataran tinggi cocok untuk pertanian. Tanaman yang cocok: Kentang, Wortel, Kubis, Stroberi. Tidak semua tanaman cocok tumbuh di dataran tinggi",
               "on_click_next": "doni melanjutkan perjalanan menuju Pos informasi 5"
             },
             {
               "id": 5,
               "title": "Cara Menjaga Kelestarian Dataran Tinggi",
-              "content": {
-                "long-content": [
-                  "Tidak membuang sampah sembarangan",
-                  "Tidak menebang pohon secara liar",
-                  "Menjaga hutan di pegunungan",
-                  "Melakukan penghijauan (Reboisasi)",
-                  "Hemat menggunakan air",
-                  "Terasering"
-                ]
-              },
+              "content": "Tidak membuang sampah sembarangan. Tidak menebang pohon secara liar. Menjaga hutan di pegunungan. Melakukan penghijauan (Reboisasi). Hemat menggunakan air. Terasering",
               "on_click_next": "muncul NPC terakhir"
             }
           ],
@@ -286,60 +266,23 @@
             {
               "id": 2,
               "title": "Pos Informasi 2 (Ciri-Ciri Dataran Rendah)",
-              "content": {
-                "points": [
-                  "Permukaan tanah relatif datar",
-                  "Suhu udara lebih hangat",
-                  "Banyak permukiman penduduk",
-                  "Memiliki akses transportasi yang mudah",
-                  "Banyak pusat kegiatan ekonomi"
-                ]
-              }
+              "content": "Permukaan tanah relatif datar. Suhu udara lebih hangat. Banyak permukiman penduduk. Memiliki akses transportasi yang mudah. Banyak pusat kegiatan ekonomi"
             },
             {
               "id": 3,
               "title": "Pos Informasi 3 (Bentuk Alam Dataran Rendah)",
-              "content": {
-                "description": "Bentang alam dataran rendah berbeda dengan dataran tinggi yang banyak memiliki perbukitan dan pegunungan. Bentuk alam yang banyak ditemukan di dataran rendah antara lain:",
-                "points": [
-                  "Persawahan",
-                  "Permukiman penduduk",
-                  "Jalan raya",
-                  "Kawasan perkotaan",
-                  "Lahan pertanian"
-                ],
-                "note": "Karena wilayahnya datar, pembangunan fasilitas umum menjadi lebih mudah dilakukan."
-              }
+              "content": "Bentang alam dataran rendah berbeda dengan dataran tinggi yang banyak memiliki perbukitan dan pegunungan. Bentuk alam yang banyak ditemukan di dataran rendah antara lain: Persawahan. Permukiman penduduk. Jalan raya. Kawasan perkotaan. Lahan pertanian"
             },
             {
               "id": 4,
               "title": "Pos Informasi 4 (Mengapa Banyak Penduduk Tinggal di Dataran Rendah?)",
-              "content": {
-                "paragraphs": [
-                  "Banyak penduduk memilih tinggal di dataran rendah karena wilayah ini memiliki kondisi yang mendukung kehidupan sehari-hari.",
-                  "Beberapa alasannya: Mudah membangun rumah dan fasilitas umum; Akses transportasi lebih mudah; Dekat dengan pusat perdagangan dan layanan masyarakat; Tersedia banyak lapangan pekerjaan; Semakin banyak penduduk yang tinggal di suatu wilayah, semakin berkembang pula kegiatan ekonomi di daerah tersebut."
-                ],
-                "points_ringkas": [
-                  "Mudah membangun rumah dan fasilitas umum.",
-                  "Akses transportasi lebih mudah.",
-                  "Dekat dengan pusat perdagangan dan layanan masyarakat.",
-                  "Tersedia banyak lapangan pekerjaan.",
-                  "Kegiatan ekonomi berkembang seiring bertambahnya penduduk."
-                ]
-              }
+              "content": 
+                  "Banyak penduduk memilih tinggal di dataran rendah karena wilayah ini memiliki kondisi yang mendukung kehidupan sehari-hari. Beberapa alasannya: Mudah membangun rumah dan fasilitas umum; Akses transportasi lebih mudah; Dekat dengan pusat perdagangan dan layanan masyarakat; Tersedia banyak lapangan pekerjaan; Semakin banyak penduduk yang tinggal di suatu wilayah, semakin berkembang pula kegiatan ekonomi di daerah tersebut. Mudah membangun rumah dan fasilitas umum. Akses transportasi lebih mudah. Dekat dengan pusat perdagangan dan layanan masyarakat. Tersedia banyak lapangan pekerjaan. Kegiatan ekonomi berkembang seiring bertambahnya penduduk."
             },
             {
               "id": 5,
               "title": "Pos Informasi 5 (Menjaga kelestarian dataran rendah)",
-              "content": {
-                "points": [
-                  "Menjaga kebersihan lingkungan",
-                  "Melindungi hewan dan tumbuhan",
-                  "Menghemat penggunaan air",
-                  "Menjaga kebersihan sungai dan saluran air",
-                  "Tidak membakar sampah sembarangan"
-                ]
-              }
+              "content": "Menjaga kebersihan lingkungan. Melindungi hewan dan tumbuhan. Menghemat penggunaan air. Menjaga kebersihan sungai dan saluran air. Tidak membakar sampah sembarangan"
             }
           ],
           "quiz": {
@@ -471,55 +414,24 @@
             {
               "id": 2,
               "title": "POS INFORMASI 2 (Ciri-Ciri Laut)",
-              "content": {
-                "points": [
-                  "Airnya asin",
-                  "Memiliki ombak",
-                  "Luas dan dalam",
-                  "Menjadi habitat berbagai makhluk hidup",
-                  "Dipengaruhi oleh pasang surut air laut"
-                ]
-              }
+              "content": 
+                  "Airnya asin. Memiliki ombak. Luas dan dalam. Menjadi habitat berbagai makhluk hidup. Dipengaruhi oleh pasang surut air laut."
             },
             {
               "id": 3,
               "title": "POS INFORMASI 3 (Kehidupan di Laut)",
-              "content": {
-                "description": "Laut merupakan rumah bagi berbagai jenis makhluk hidup. Contoh makhluk hidup yang dapat ditemukan di laut: Ikan, Udang, Kepiting, Rumput laut, Terumbu karang. Makhluk hidup tersebut membentuk ekosistem laut yang saling bergantung satu sama lain.",
-                "species": [
-                  "Ikan",
-                  "Udang",
-                  "Kepiting",
-                  "Rumput laut",
-                  "Terumbu karang"
-                ]
-              }
+              "content": "Laut merupakan rumah bagi berbagai jenis makhluk hidup. Contoh makhluk hidup yang dapat ditemukan di laut: Ikan, Udang, Kepiting, Rumput laut, Terumbu karang. Makhluk hidup tersebut membentuk ekosistem laut yang saling bergantung satu sama lain. Spesiesnya: Ikan, Udang, Kepiting, Rumput laut, dan Terumbu karang."
             },
             {
               "id": 4,
               "title": "POS INFORMASI 4 (Mengapa Laut Penting bagi Kehidupan?)",
-              "content": {
-                "benefits": [
-                  "Sumber makanan",
-                  "Jalur transportasi",
-                  "Tempat wisata",
-                  "Membantu menjaga keseimbangan lingkungan"
-                ],
-                "note": "Karena memiliki banyak manfaat, laut perlu dijaga dan dilestarikan."
-              }
+              "content": 
+                  "Sumber makanan. Jalur transportasi. Tempat wisata. Membantu menjaga keseimbangan lingkungan."
             },
             {
               "id": 5,
               "title": "POS INFORMASI 5 (Menjaga Kelestarian Laut)",
-              "content": {
-                "points": [
-                  "Tidak membuang sampah ke laut.",
-                  "Mengurangi penggunaan plastik sekali pakai.",
-                  "Menjaga kebersihan pantai.",
-                  "Tidak merusak terumbu karang.",
-                  "Menggunakan sumber daya laut secara bijak."
-                ]
-              }
+              "content": "Tidak membuang sampah ke laut. Mengurangi penggunaan plastik sekali pakai. Menjaga kebersihan pantai.Tidak merusak terumbu karang. Menggunakan sumber daya laut secara bijak."
             }
           ],
           "quiz": {
