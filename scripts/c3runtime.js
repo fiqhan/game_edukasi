@@ -1289,14 +1289,14 @@ const C3=self.C3,GESTURE_HOLD_THRESHOLD=15,GESTURE_HOLD_TIMEOUT=500,GESTURE_TAP_
 {const t=self.C3;t.Plugins.Json=class extends t.SDKPluginBase{constructor(t){super(t)}Release(){super.Release()}}}{const t=self.C3;t.Plugins.Json.Type=class extends t.SDKTypeBase{constructor(t){super(t)}Release(){super.Release()}OnCreate(){}}}{const t=self.C3,e=self.C3X,a=self.IInstance;t.Plugins.Json.Instance=class extends t.SDKInstanceBase{constructor(t,e){super(t),this._valueCache=[null,null],this._locationCache=[null,null],this._data={},this._path=[],this._currentKey="",this._currentValue=0}Release(){super.Release()}_InvalidateValueCache(){this._valueCache[0]=null,this._valueCache[1]=null}_HasValueCache(e,a){const s=this._valueCache[0];if(null===e||null===s)return!1;if(s===e||t.arraysEqual(s,e))return!0;if(a&&s.length>0){for(let t=0,a=Math.min(e.length,s.length);t<a;++t)if(e[t]!==s[t])return!1;return!0}return!1}_GetValueCache(){return this._valueCache[1]}_UpdateValueCache(t,e){this._valueCache[0]=t,this._valueCache[1]=e}_InvalidateLocationCache(){this._locationCache[0]=null,this._locationCache[1]=null}_HasLocationCache(t){return this._locationCache[0]===t}_GetLocationCache(){return this._locationCache[1]}_UpdateLocationCache(t,e){this._locationCache[0]=t,this._locationCache[1]=e}_SetData(t){this._data=t,this._InvalidateValueCache(),this._SetPath("")}_GetData(){return this._data}_SetPath(t){this._path=this._ParsePathUnsafe(t),this._InvalidateLocationCache()}_ParsePath(e){return t.cloneArray(this._ParsePathUnsafe(e))}_ParsePathUnsafe(e){const a=[];let s,r=!1;if(this._HasLocationCache(e))return this._GetLocationCache();"."===e[0]?(s=t.cloneArray(this._path),e=e.slice(1)):s=[];for(const n of e)r?(a.push(n),r=!1):"\\"===n?r=!0:"."===n?(s.push(a.join("")),t.clearArray(a)):a.push(n);return 0!==a.length&&s.push(a.join("")),this._UpdateLocationCache(e,s),s}_GetValueAtFullPath(t,e){if(this._HasValueCache(t,!1))return this._GetValueCache();let a=this._data;for(const s of t)if(Array.isArray(a)){const t=parseInt(s,10);if(t<0||t>=a.length||!isFinite(t)){a=null;break}a=a[t]}else{if("object"!=typeof a||null===a){a=null;break}if(a.hasOwnProperty(s))a=a[s];else{if(!e){a=null;break}{const t={};a[s]=t,a=t}}}return this._UpdateValueCache(t,a),a}_GetValue(t){const e=this._ParsePath(t);if(!e.length)return this._data;const a=e.pop(),s=this._GetValueAtFullPath(e,!1);if(Array.isArray(s)){const t=parseInt(a,10);return t>=0&&t<s.length?s[t]:null}return"object"==typeof s&&null!==s&&s.hasOwnProperty(a)?s[a]:null}_JSONTypeOf(t){return null===t?"null":Array.isArray(t)?"array":typeof t}_GetTypeOf(t){const e=this._GetValue(t);return this._JSONTypeOf(e)}_ToSafeValue(t){const e=typeof t;return"number"===e||"string"===e?t:"boolean"===e&&t?1:0}_GetSafeValue(t){return this._ToSafeValue(this._GetValue(t))}_HasKey(t){const e=this._ParsePath(t);if(!e.length)return!1;const a=e.pop(),s=this._GetValueAtFullPath(e,!1);if(Array.isArray(s)){const t=parseInt(a,10);return t>=0&&t<s.length}return"object"==typeof s&&null!==s&&s.hasOwnProperty(a)}_SetValue(t,e){const a=this._ParsePath(t);if(!a.length)return!1;this._HasValueCache(a,!0)&&this._InvalidateValueCache();const s=a.pop(),r=this._GetValueAtFullPath(a,!0);if(Array.isArray(r)){const t=parseInt(s,10);return!(!isFinite(t)||t<0||t>=r.length)&&(r[t]=e,!0)}return"object"==typeof r&&null!==r&&(r[s]=e,!0)}_DeleteKey(t){const e=this._ParsePath(t);if(!e.length)return!1;this._HasValueCache(e,!0)&&this._InvalidateValueCache();const a=e.pop(),s=this._GetValueAtFullPath(e,!1);return!Array.isArray(s)&&("object"==typeof s&&null!==s&&(delete s[a],!0))}SaveToJson(){return{"path":this._path,"data":this._data}}LoadFromJson(t){this._InvalidateValueCache(),this._InvalidateLocationCache(),this._path=t["path"],this._data=t["data"]}_SanitizeValue(t){return"number"===typeof t?isFinite(t)?t:0:"object"==typeof t?JSON.stringify(t):t+""}GetDebuggerProperties(){const t="plugins.json.debugger";let e;try{e=this._SanitizeValue(this._data)}catch(t){e='"invalid"'}return[{title:t+".title",properties:[{name:t+".data",value:e,onedit:t=>{try{const e=JSON.parse(t);this._SetData(e)}catch(t){}}},{name:t+".path",value:this._path.map(t=>t.replace(/\./g,"\\.")).join(".")}]}]}GetScriptInterfaceClass(){return self.IJSONInstance}};const s=new WeakMap;self.IJSONInstance=class extends a{constructor(){super(),s.set(this,a._GetInitInst().GetSdkInstance())}getJsonDataCopy(){const t=s.get(this)._GetData();return JSON.parse(JSON.stringify(t))}setJsonDataCopy(t){try{const e=JSON.parse(JSON.stringify(t));s.get(this)._SetData(e)}catch(t){throw console.error("[JSON plugin] setJsonData: object is not valid JSON: ",t),t}}setJsonString(t){e.RequireString(t);try{const e=JSON.parse(t);s.get(this)._SetData(e)}catch(t){throw console.error("[JSON plugin] setJsonString: string is not valid JSON: ",t),t}}toCompactString(){return JSON.stringify(s.get(this)._GetData())}toBeautifiedString(){return JSON.stringify(s.get(this)._GetData(),null,4)}}}{const t=self.C3,e=["null","boolean","number","string","object","array"];t.Plugins.Json.Cnds={HasKey(t){return this._HasKey(t)},CompareType(t,a){return this._GetTypeOf(t)===e[a]},CompareValue(e,a,s){return t.compare(this._GetSafeValue(e),a,s)},IsBooleanSet(t){return!0===this._GetValue(t)},ForEach(e){const a=this._GetValue(e);if("object"!=typeof a||null===a)return!1;const s=this._runtime,r=s.GetEventSheetManager(),n=s.GetCurrentEvent(),i=n.GetSolModifiers(),l=s.GetEventStack(),u=l.GetCurrentStackFrame(),h=l.Push(n),o=this._path,c=this._currentKey,_=this._currentValue,p=this._ParsePathUnsafe(e);s.SetDebuggingEnabled(!1);for(const[e,s]of Object.entries(a)){this._path=t.cloneArray(p),this._path.push(e),this._currentKey=e,this._currentValue=s,r.PushCopySol(i);this.GetObjectClass().GetCurrentSol().PickOne(this.GetInstance()),n.Retrigger(u,h),r.PopSol(i)}return s.SetDebuggingEnabled(!0),this._path=o,this._InvalidateLocationCache(),this._currentKey=c,this._currentValue=_,l.Pop(),!1},OnParseError:()=>!0,OnParseSuccess:()=>!0}}{const t=self.C3;t.Plugins.Json.Acts={Parse(e){try{this._SetData(JSON.parse(e)),this.Trigger(t.Plugins.Json.Cnds.OnParseSuccess)}catch(e){console.warn("[JSON plugin] Failed to parse JSON data: ",e),this._SetData({}),this.Trigger(t.Plugins.Json.Cnds.OnParseError)}},SetPath(t){this._SetPath(t)},SetValue(t,e){this._SetValue(t,e)},SetArray(e,a){let s=this._GetValue(e);Array.isArray(s)?t.resizeArray(s,a,0):(s=[],t.extendArray(s,a,0),this._SetValue(e,s))},SetObject(t){this._SetValue(t,{})},SetJSON(e,a){let s=null;try{s=JSON.parse(a),this.Trigger(t.Plugins.Json.Cnds.OnParseSuccess)}catch(e){console.warn("[JSON plugin] Failed to parse JSON data: ",e),this.Trigger(t.Plugins.Json.Cnds.OnParseError)}this._SetValue(e,s)},SetNull(t){this._SetValue(t,null)},SetBoolean(t,e){this._SetValue(t,0!==e)},ToggleBoolean(t){const e=this._GetValue(t);"boolean"==typeof e&&this._SetValue(t,!e)},AddTo(t,e){const a=this._GetValue(t);"number"==typeof a&&this._SetValue(t,a+e)},SubtractFrom(t,e){const a=this._GetValue(t);"number"==typeof a&&this._SetValue(t,a-e)},DeleteKey(t){this._DeleteKey(t)},PushValue(t,e,a){const s=this._GetValue(e);Array.isArray(s)&&(0===t?s.push(a):s.unshift(a),this._InvalidateValueCache())},PopValue(t,e){const a=this._GetValue(e);Array.isArray(a)&&(0===t?a.pop():a.shift(),this._InvalidateValueCache())},InsertValue(t,e,a){const s=this._GetValue(e);Array.isArray(s)&&(s.splice(a,0,t),this._InvalidateValueCache())},RemoveValues(t,e,a){const s=this._GetValue(e);Array.isArray(s)&&t>0&&(s.splice(a,t),this._InvalidateValueCache())}}}self.C3.Plugins.Json.Exps={ToCompactString(){try{return JSON.stringify(this._data)}catch(t){return""}},ToBeautifiedString(){try{return JSON.stringify(this._data,null,4)}catch(t){return""}},Get(t){return this._GetSafeValue(t)},GetAsCompactString(t){const e=this._GetValue(t);return JSON.stringify(e)},GetAsBeautifiedString(t){const e=this._GetValue(t);return JSON.stringify(e,null,4)},Front(t){const e=this._GetValue(t);if(Array.isArray(e)){const t=e[0];return this._ToSafeValue(t)}return-1},Back(t){const e=this._GetValue(t);if(Array.isArray(e)){const t=e.at(-1);return this._ToSafeValue(t)}return-1},Type(t){return this._GetTypeOf(t)},ArraySize(t){const e=this._GetValue(t);return Array.isArray(e)?e.length:-1},Path(){return this._path.map(t=>t.replace(/\./g,"\\.")).join(".")},CurrentKey(){return this._currentKey},CurrentValue(){return this._ToSafeValue(this._currentValue)},CurrentType(){return this._JSONTypeOf(this._currentValue)}};
 }
 
-// scripts/behaviors/solid/c3runtime/runtime.js
-{
-{const e=self.C3;e.Behaviors.solid=class extends e.SDKBehaviorBase{constructor(e){super(e)}Release(){super.Release()}}}{const e=self.C3;e.Behaviors.solid.Type=class extends e.SDKBehaviorTypeBase{constructor(e){super(e)}Release(){super.Release()}OnCreate(){}}}{const e=self.C3,s=self.C3X,t=self.IBehaviorInstance,a=0,n=1,i=2,r=new Set;e.Behaviors.solid.Instance=class extends e.SDKBehaviorInstanceBase{constructor(s,t){super(s),this.SetEnabled(!0),t&&(this.SetEnabled(t[a]),this._SetUsesInstanceTags(t[n]),this.SetTags(e.splitStringAndNormalize(t[i])))}Release(){super.Release()}SetEnabled(e){this._inst._SetSolidEnabled(!!e)}IsEnabled(){return this._inst._IsSolidEnabled()}_SetUsesInstanceTags(e){this._inst._SetSolidUsingInstanceTags(e)}UsesInstanceTags(){return this._inst._IsSolidUsingInstanceTags()}SetTags(e){const s=this._inst.GetSavedDataMap();let t=s.get("solidTags");t||(t=new Set,s.set("solidTags",t)),t.clear();for(const s of e)t.add(s.toLowerCase());0===t.size&&s.delete("solidTags")}GetTags(){return this._inst.GetSavedDataMap().get("solidTags")||r}_GetTagsString(){return[...this.GetTags()].join(" ")}SaveToJson(){return{"e":this.IsEnabled(),"it":this.UsesInstanceTags()}}LoadFromJson(e){this.SetEnabled(e["e"]),this._SetUsesInstanceTags(!!e["it"])}GetPropertyValueByIndex(e){if(e===a)return this.IsEnabled()}SetPropertyValueByIndex(e,s){if(e===a)this.SetEnabled(s)}GetDebuggerProperties(){const s=[{name:"behaviors.solid.properties.enabled.name",value:this.IsEnabled(),onedit:e=>this.SetEnabled(e)},{name:"behaviors.solid.properties.use-instance-tags.name",value:this.UsesInstanceTags()}];return this.UsesInstanceTags()||s.push({name:"behaviors.solid.properties.tags.name",value:this._GetTagsString(),onedit:s=>this.SetTags(e.splitStringAndNormalize(s))}),[{title:"$"+this.GetBehaviorType().GetName(),properties:s}]}GetScriptInterfaceClass(){return self.ISolidBehaviorInstance}},self.ISolidBehaviorInstance=class extends t{#e;constructor(){super(),this.#e=t._GetInitInst().GetSdkInstance()}set isEnabled(e){this.#e.SetEnabled(!!e)}get isEnabled(){return this.#e.IsEnabled()}get usesInstanceTags(){return this.#e.UsesInstanceTags()}set tags(t){this.runtime._logDeprecationWarning("ISolidBehaviorInstance.tags","ISolidBehaviorInstance 'tags' property is deprecated. Use instance tags instead."),s.RequireString(t),this.#e.SetTags(e.splitStringAndNormalize(t))}get tags(){return this.runtime._logDeprecationWarning("ISolidBehaviorInstance.tags","ISolidBehaviorInstance 'tags' property is deprecated. Use instance tags instead."),this.#e._GetTagsString()}setAllTags(e){this.runtime._logDeprecationWarning("ISolidBehaviorInstance.setAllTags","ISolidBehaviorInstance 'setAllTags' method is deprecated. Use instance tags instead."),this.#e.SetTags(e)}getAllTags(){return this.runtime._logDeprecationWarning("ISolidBehaviorInstance.getAllTags","ISolidBehaviorInstance 'getAllTags' method is deprecated. Use instance tags instead."),new Set(this.#e.GetTags())}}}self.C3.Behaviors.solid.Cnds={IsEnabled(){return this.IsEnabled()}};{const e=self.C3;e.Behaviors.solid.Acts={SetEnabled(e){this.SetEnabled(e)},SetTags(s){this.SetTags(e.splitStringAndNormalize(s))}}}self.C3.Behaviors.solid.Exps={};
-}
-
 // scripts/behaviors/Anchor/c3runtime/runtime.js
 {
 {const t=self.C3;t.Behaviors.Anchor=class extends t.SDKBehaviorBase{constructor(t){super(t)}Release(){super.Release()}}}{const t=self.C3;t.Behaviors.Anchor.Type=class extends t.SDKBehaviorTypeBase{constructor(t){super(t)}Release(){super.Release()}OnCreate(){}}}{const t=self.C3,e=(self.C3X,self.IBehaviorInstance),i=0,s=1,h=2,o=3,n=4;t.Behaviors.Anchor.Instance=class extends t.SDKBehaviorInstanceBase{constructor(e,a){super(e),this._anchorLeft=2,this._anchorTop=2,this._anchorRight=0,this._anchorBottom=0,this._isEnabled=!0;const r=this._inst.GetWorldInfo().GetBoundingBox();this._xLeft=r.getLeft(),this._yTop=r.getTop(),this._xRight=this._runtime.GetOriginalViewportWidth()-r.getLeft(),this._yBottom=this._runtime.GetOriginalViewportHeight()-r.getTop(),this._rDiff=this._runtime.GetOriginalViewportWidth()-r.getRight(),this._bDiff=this._runtime.GetOriginalViewportHeight()-r.getBottom(),a&&(this._anchorLeft=a[i],this._anchorTop=a[s],this._anchorRight=a[h],this._anchorBottom=a[o],this._isEnabled=!!a[n]);const _=this._runtime.Dispatcher();this._disposables=new t.CompositeDisposable(t.Disposable.From(_,"layoutchange",()=>this._OnLayoutChange())),this._isEnabled&&this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"xl":this._xLeft,"yt":this._yTop,"xr":this._xRight,"yb":this._yBottom,"rd":this._rDiff,"bd":this._bDiff,"al":this._anchorLeft,"at":this._anchorTop,"ar":this._anchorRight,"ab":this._anchorBottom,"e":this._isEnabled}}LoadFromJson(t){this._xLeft=t["xl"],this._yTop=t["yt"],this._xRight=t["xr"],this._yBottom=t["yb"],this._rDiff=t["rd"],this._bDiff=t["bd"],this._anchorLeft=t["al"],this._anchorTop=t["at"],this._anchorRight=t["ar"],this._anchorBottom=t["ab"],this._isEnabled=t["e"],this._isEnabled?this._StartTicking():this._StopTicking()}_SetEnabled(t){if(this._isEnabled&&!t)this._isEnabled=!1,this._StopTicking();else if(!this._isEnabled&&t){const t=this._inst.GetWorldInfo().GetBoundingBox();this._xLeft=t.getLeft(),this._yTop=t.getTop(),this._xRight=this._runtime.GetOriginalViewportWidth()-t.getLeft(),this._yBottom=this._runtime.GetOriginalViewportHeight()-t.getTop(),this._rDiff=this._runtime.GetOriginalViewportWidth()-t.getRight(),this._bDiff=this._runtime.GetOriginalViewportHeight()-t.getBottom(),this._isEnabled=!0,this._StartTicking()}}_IsEnabled(){return this._isEnabled}_UpdatePosition(){if(!this._isEnabled)return;const t=this._inst.GetWorldInfo(),e=t.GetLayer().GetViewport();if(0===this._anchorLeft){const i=e.getLeft()+this._xLeft-t.GetBoundingBox().getLeft();0!==i&&(t.OffsetX(i),t.SetBboxChanged())}else if(1===this._anchorLeft){const i=e.getRight()-this._xRight-t.GetBoundingBox().getLeft();0!==i&&(t.OffsetX(i),t.SetBboxChanged())}if(0===this._anchorTop){const i=e.getTop()+this._yTop-t.GetBoundingBox().getTop();0!==i&&(t.OffsetY(i),t.SetBboxChanged())}else if(1===this._anchorTop){const i=e.getBottom()-this._yBottom-t.GetBoundingBox().getTop();0!==i&&(t.OffsetY(i),t.SetBboxChanged())}if(1===this._anchorRight){const i=e.getRight()-this._rDiff-t.GetBoundingBox().getRight();0!==i&&(t.OffsetX(t.GetOriginX()*i),t.SetWidth(Math.max(t.GetWidth()+i),0),t.SetBboxChanged(),this._rDiff=e.getRight()-t.GetBoundingBox().getRight())}if(1===this._anchorBottom){const i=e.getBottom()-this._bDiff-t.GetBoundingBox().getBottom();0!==i&&(t.OffsetY(t.GetOriginY()*i),t.SetHeight(Math.max(t.GetHeight()+i,0)),t.SetBboxChanged(),this._bDiff=e.getBottom()-t.GetBoundingBox().getBottom())}}Tick(){this._UpdatePosition()}_OnLayoutChange(){this._UpdatePosition()}GetPropertyValueByIndex(t){switch(t){case i:return this._anchorLeft;case s:return this._anchorTop;case h:return this._anchorRight;case o:return this._anchorBottom;case n:return this._isEnabled}}SetPropertyValueByIndex(t,e){switch(t){case i:this._anchorLeft=e;break;case s:this._anchorTop=e;break;case h:this._anchorRight=e;break;case o:this._anchorBottom=e;break;case n:this._isEnabled=!!e,this._isEnabled?this._StartTicking():this._StopTicking()}}GetDebuggerProperties(){return[{title:"$"+this.GetBehaviorType().GetName(),properties:[{name:"behaviors.anchor.properties.enabled.name",value:this._IsEnabled(),onedit:t=>this._SetEnabled(t)}]}]}GetScriptInterfaceClass(){return self.IAnchorBehaviorInstance}};const a=new WeakMap;self.IAnchorBehaviorInstance=class extends e{constructor(){super(),a.set(this,e._GetInitInst().GetSdkInstance())}get isEnabled(){return a.get(this)._IsEnabled()}set isEnabled(t){a.get(this)._SetEnabled(t)}}}self.C3.Behaviors.Anchor.Cnds={IsEnabled(){return this._IsEnabled()}};self.C3.Behaviors.Anchor.Acts={SetEnabled(t){this._SetEnabled(0!==t)}};self.C3.Behaviors.Anchor.Exps={};
+}
+
+// scripts/behaviors/solid/c3runtime/runtime.js
+{
+{const e=self.C3;e.Behaviors.solid=class extends e.SDKBehaviorBase{constructor(e){super(e)}Release(){super.Release()}}}{const e=self.C3;e.Behaviors.solid.Type=class extends e.SDKBehaviorTypeBase{constructor(e){super(e)}Release(){super.Release()}OnCreate(){}}}{const e=self.C3,s=self.C3X,t=self.IBehaviorInstance,a=0,n=1,i=2,r=new Set;e.Behaviors.solid.Instance=class extends e.SDKBehaviorInstanceBase{constructor(s,t){super(s),this.SetEnabled(!0),t&&(this.SetEnabled(t[a]),this._SetUsesInstanceTags(t[n]),this.SetTags(e.splitStringAndNormalize(t[i])))}Release(){super.Release()}SetEnabled(e){this._inst._SetSolidEnabled(!!e)}IsEnabled(){return this._inst._IsSolidEnabled()}_SetUsesInstanceTags(e){this._inst._SetSolidUsingInstanceTags(e)}UsesInstanceTags(){return this._inst._IsSolidUsingInstanceTags()}SetTags(e){const s=this._inst.GetSavedDataMap();let t=s.get("solidTags");t||(t=new Set,s.set("solidTags",t)),t.clear();for(const s of e)t.add(s.toLowerCase());0===t.size&&s.delete("solidTags")}GetTags(){return this._inst.GetSavedDataMap().get("solidTags")||r}_GetTagsString(){return[...this.GetTags()].join(" ")}SaveToJson(){return{"e":this.IsEnabled(),"it":this.UsesInstanceTags()}}LoadFromJson(e){this.SetEnabled(e["e"]),this._SetUsesInstanceTags(!!e["it"])}GetPropertyValueByIndex(e){if(e===a)return this.IsEnabled()}SetPropertyValueByIndex(e,s){if(e===a)this.SetEnabled(s)}GetDebuggerProperties(){const s=[{name:"behaviors.solid.properties.enabled.name",value:this.IsEnabled(),onedit:e=>this.SetEnabled(e)},{name:"behaviors.solid.properties.use-instance-tags.name",value:this.UsesInstanceTags()}];return this.UsesInstanceTags()||s.push({name:"behaviors.solid.properties.tags.name",value:this._GetTagsString(),onedit:s=>this.SetTags(e.splitStringAndNormalize(s))}),[{title:"$"+this.GetBehaviorType().GetName(),properties:s}]}GetScriptInterfaceClass(){return self.ISolidBehaviorInstance}},self.ISolidBehaviorInstance=class extends t{#e;constructor(){super(),this.#e=t._GetInitInst().GetSdkInstance()}set isEnabled(e){this.#e.SetEnabled(!!e)}get isEnabled(){return this.#e.IsEnabled()}get usesInstanceTags(){return this.#e.UsesInstanceTags()}set tags(t){this.runtime._logDeprecationWarning("ISolidBehaviorInstance.tags","ISolidBehaviorInstance 'tags' property is deprecated. Use instance tags instead."),s.RequireString(t),this.#e.SetTags(e.splitStringAndNormalize(t))}get tags(){return this.runtime._logDeprecationWarning("ISolidBehaviorInstance.tags","ISolidBehaviorInstance 'tags' property is deprecated. Use instance tags instead."),this.#e._GetTagsString()}setAllTags(e){this.runtime._logDeprecationWarning("ISolidBehaviorInstance.setAllTags","ISolidBehaviorInstance 'setAllTags' method is deprecated. Use instance tags instead."),this.#e.SetTags(e)}getAllTags(){return this.runtime._logDeprecationWarning("ISolidBehaviorInstance.getAllTags","ISolidBehaviorInstance 'getAllTags' method is deprecated. Use instance tags instead."),new Set(this.#e.GetTags())}}}self.C3.Behaviors.solid.Cnds={IsEnabled(){return this.IsEnabled()}};{const e=self.C3;e.Behaviors.solid.Acts={SetEnabled(e){this.SetEnabled(e)},SetTags(s){this.SetTags(e.splitStringAndNormalize(s))}}}self.C3.Behaviors.solid.Exps={};
 }
 
 // scripts/behaviors/Pin/c3runtime/runtime.js
@@ -1449,29 +1449,8 @@ self.C3_ExpressionFuncs = [
 		() => "hasil",
 		() => "tentang",
 		() => "pengaturan",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => and("Skor Akhir: ", ((v0.GetValue() + v1.GetValue()) + v2.GetValue()));
-		},
-		() => 10000,
-		() => "jelajah_nusantara_construct3.json",
 		() => 2,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
-		},
-		() => "karakter_bergerak",
-		() => "karakter_diam",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (and("Pos ", n0.ExpInstVar()) + " Selesai");
-		},
+		() => 3,
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -1485,47 +1464,29 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
+			return () => and("Pos Tantangan: ", n0.ExpObject((and("game.flow.zonation.", v1.GetValue()) + ".nama")));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			const f3 = p._GetNode(3).GetBoundMethod();
 			return () => n0.ExpObject(and((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".options."), f3()));
 		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar_Family();
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const v2 = p._GetNode(2).GetVar();
-			const v3 = p._GetNode(3).GetVar();
-			return () => f0(n1.ExpObject((and((and("game.flow.zonation.", v2.GetValue()) + ".quiz.questions."), v3.GetValue()) + ".correct_option_index")));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => and("BENAR! ", n0.ExpObject((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".discussion")));
-		},
-		() => 10,
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			const n3 = p._GetNode(3);
-			const v4 = p._GetNode(4).GetVar();
-			const v5 = p._GetNode(5).GetVar();
-			return () => and("SALAH! Jawaban yang benar adalah ", n0.ExpObject(and((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".options."), n3.ExpObject((and((and("game.flow.zonation.", v4.GetValue()) + ".quiz.questions."), v5.GetValue()) + ".correct_option_index")))));
-		},
-		() => 9,
-		() => 3,
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => and("Pos Tantangan: ", n0.ExpObject((and("game.flow.zonation.", v1.GetValue()) + ".nama")));
-		},
+		() => "jelajah_nusantara_construct3.json",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
+		},
+		() => "karakter_bergerak",
+		() => "karakter_diam",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
 		},
 		() => 6,
 		p => {
@@ -1544,10 +1505,22 @@ self.C3_ExpressionFuncs = [
 		() => "Jago",
 		p => {
 			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar_Family();
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			return () => f0(n1.ExpObject((and((and("game.flow.zonation.", v2.GetValue()) + ".quiz.questions."), v3.GetValue()) + ".correct_option_index")));
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			return () => n0.ExpObject((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".discussion"));
 		},
+		() => 10,
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -1557,9 +1530,36 @@ self.C3_ExpressionFuncs = [
 			const v5 = p._GetNode(5).GetVar();
 			return () => and("Jawaban yang benar adalah ", n0.ExpObject(and((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".options."), n3.ExpObject((and((and("game.flow.zonation.", v4.GetValue()) + ".quiz.questions."), v5.GetValue()) + ".correct_option_index")))));
 		},
+		() => 9,
 		() => 145,
 		() => 831,
-		() => "Pemula"
+		() => "Pemula",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => and("Skor Akhir: ", ((v0.GetValue() + v1.GetValue()) + v2.GetValue()));
+		},
+		() => 10000,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and("Pos ", n0.ExpInstVar()) + " Selesai");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => and("BENAR! ", n0.ExpObject((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".discussion")));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const n3 = p._GetNode(3);
+			const v4 = p._GetNode(4).GetVar();
+			const v5 = p._GetNode(5).GetVar();
+			return () => and("SALAH! Jawaban yang benar adalah ", n0.ExpObject(and((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".options."), n3.ExpObject((and((and("game.flow.zonation.", v4.GetValue()) + ".quiz.questions."), v5.GetValue()) + ".correct_option_index")))));
+		}
 ];
 
 
