@@ -1435,15 +1435,19 @@ self.C3_ExpressionFuncs = [
 		() => "backsound_main_menu",
 		() => 0,
 		() => "bgsn_main_menu",
+		() => 1,
 		() => "main",
+		() => "bgm_zona",
 		() => "zona1",
+		() => "zona2",
+		() => "Selesaikan Zona 1 Terlebih Dahulu",
+		() => "zona3",
+		() => "Selesaikan Zona 2 Terlebih Dahulu",
 		() => 3000,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
-		() => "kicauMania",
-		() => 1,
 		() => "pilih_zona",
 		() => "panduan",
 		() => "hasil",
@@ -1531,35 +1535,15 @@ self.C3_ExpressionFuncs = [
 			return () => and("Jawaban yang benar adalah ", n0.ExpObject(and((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".options."), n3.ExpObject((and((and("game.flow.zonation.", v4.GetValue()) + ".quiz.questions."), v5.GetValue()) + ".correct_option_index")))));
 		},
 		() => 9,
-		() => 145,
-		() => 831,
-		() => "Pemula",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			return () => and("Skor Akhir: ", ((v0.GetValue() + v1.GetValue()) + v2.GetValue()));
 		},
-		() => 10000,
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (and("Pos ", n0.ExpInstVar()) + " Selesai");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => and("BENAR! ", n0.ExpObject((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".discussion")));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			const n3 = p._GetNode(3);
-			const v4 = p._GetNode(4).GetVar();
-			const v5 = p._GetNode(5).GetVar();
-			return () => and("SALAH! Jawaban yang benar adalah ", n0.ExpObject(and((and((and("game.flow.zonation.", v1.GetValue()) + ".quiz.questions."), v2.GetValue()) + ".options."), n3.ExpObject((and((and("game.flow.zonation.", v4.GetValue()) + ".quiz.questions."), v5.GetValue()) + ".correct_option_index")))));
-		}
+		() => 831.349617,
+		() => 145.769197,
+		() => "Pemula"
 ];
 
 
