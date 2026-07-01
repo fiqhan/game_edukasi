@@ -20,13 +20,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Sin,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Browser.Acts.LockOrientation,
-		C3.Plugins.Audio.Acts.PlayByName,
 		C3.Plugins.System.Acts.SetTimescale,
 		C3.Plugins.Sprite.Acts.SetCollisions,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.System.Acts.GoToLayoutByName,
-		C3.Plugins.Audio.Acts.Play,
-		C3.Plugins.Audio.Acts.Stop,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Browser.Acts.Alert,
@@ -36,6 +33,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.EightDir.Acts.SimulateControl,
 		C3.Plugins.Sprite.Acts.SetMirrored,
 		C3.Plugins.Browser.Acts.RequestFullScreen,
+		C3.Plugins.Audio.Acts.PlayByName,
 		C3.Plugins.Audio.Acts.SetSilent,
 		C3.Plugins.Browser.Acts.Close,
 		C3.Plugins.System.Acts.SetVar,
@@ -65,6 +63,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.Sprite.Exps.X
 	];
 };

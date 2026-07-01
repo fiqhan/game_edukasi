@@ -1432,22 +1432,21 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
-		() => "backsound_main_menu",
-		() => 0,
-		() => "bgsn_main_menu",
 		() => 1,
 		() => "main",
-		() => "bgm_zona",
 		() => "zona1",
 		() => "zona2",
 		() => "Selesaikan Zona 1 Terlebih Dahulu",
 		() => "zona3",
 		() => "Selesaikan Zona 2 Terlebih Dahulu",
 		() => 3000,
+		() => 0,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		() => "kicauMania",
+		() => "bgsn_main_menu",
 		() => "pilih_zona",
 		() => "panduan",
 		() => "hasil",
